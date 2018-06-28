@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Basic UNIX Lessons</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Technical Documentation Page"/>
+<meta name="author" content="D.E"/>
+<title>Basic MATLAB Lessons</title>
+  
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <!-- Initializes Nav -->
+<main id="main-doc" class="wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <nav id="navbar">
+          <header>UNIX Documentation</header>
+          <button class="menu__trigger">
+                     <i class="fa fa-bars" aria-hidden="true"></i>
+                  </button>
+          <ul class="menu__content">
+            <li>
+              <a class="nav-link" href="#Introduction" title="Introduction">Introduction</a>
+            </li>
+            <li>
+              <a class="nav-link" href="#Unix_and_Linux" title="Unix and Linux">Unix and Linux</a>
+            </li>
+            <li>
+              <a class="nav-link" href="#Hello_Terminal" title="Hello Terminal">Hello Terminal</a>
+            </li>
+            <li>
+              <a class="nav-link" href="#Navigating_The_Command_Line" title="Navigating The Command Line">Navigating The Command Line</a>
+            </li>
+            <li>
+              <a class="nav-link" href="#Creation_and_Inspection" title="Creation and Inspection">Creation and Inspection</a>
+            </li>
+            <li>
+              <a class="nav-link" href="#Migration_and_Destruction" title="Migration and Destruction">Migration and Destruction</a>
+            </li>
+            <li>
+              <a class="nav-link" href="#Self_Help" title="Self Help">Self Help</a>
+            </li>
+            <li>
+              <a class="nav-link" href="#Get_Wild" title="Get Wild">Get Wild</a>
+            </li>
+            <li>
+              <a class="nav-link" href="#Search" title="Search">Search</a>
+            </li>
+            <li>
+              <a class="nav-link" href="#Make" title="Make">Make</a>
+            </li>
+            <li>
+              <a class="nav-link" href="#Math" title="Math">Math</a>
+            </li>
+            <li>
+              <a class="nav-link" href="#Reference" title="Reference">Reference</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="overlay"></div>
+        <!-- INTRODUCTION -->
+        <div class="content">
+          <section id="Introduction" class="main-section">
+            <header>Introduction</header>
+            <article>
+              <p>This document is intended for those who are new to programming and new to Unix-like operating systems like macOS and Linux distributions like Ubuntu. Most of the technologies discussed will be accessed via a command line interface. Command
+                line interfaces can seem confusing at first, but with the help of this documentation, the command line and its actions will become clear and understandable. You’ll also learn how to write little pieces of software in a programming language
+                called Bash. My hope is that by the end of the documentation you be able to use different Unix tools as if they’re interconnecting Lego bricks.</p>
+              <p>Unix forms a foundation that is often very helpful for accomplishing other goals you might have for you and your computer, whether that goal is running a business, writing a book, or creating the next great app. The means to these goals
+                are sometimes carried out by writing software. Software isn’t produced in factories on an assembly line. Software is a hand-made, often bespoke good. If a software developer is an artisan, then Unix is their workbench. Unix provides an
+                essential and simple set of tools in a distraction-free environment. Even if you’re not a software developer learning Unix can open you up to new methods of thinking and novel ways to scale your ideas.</p>
+              <p><big> ALL OF THE UNIX TERMINOLOGY/PROGRAMS ARE IN LOWERCASE. UPPERCASE IS USED IN THE DOCUMENTATION TO SHOW IMPORTANCE!</big></p>
+            </article>
+          </section>
+          <section id="Unix_and_Linux" class="main-section">
+            <header>Unix and Linux</header>
+            <article>
+              <p>If you are a software developer in your 20s or 30s, you've grown up in a world dominated by Linux. It has been a significant player in the data center for decades, and while it's hard to find definitive operating system market share reports,
+                Linux's share of data center operating systems could be as high as 70%, with Windows variants carrying nearly all the remaining percentage. Developers using any major public cloud can expect the target system will run Linux. Evidence that
+                Linux is everywhere has grown in recent years when you add in Android and Linux-based embedded systems in smartphones, TVs, automobiles, and many other devices.</p>
+              <p>Even so, most software developers, even those who have grown up during this venerable "Linux revolution" have at least heard of Unix. It sounds similar to Linux, and you've probably heard people use these terms interchangeably. Or maybe
+                you've heard Linux called a "Unix-like" operating system.</p>
+              <p>So, what exactly is Unix? The caricatures speak of wizard-like "graybeards" sitting behind glowing green screens, writing C code and shell scripts, powered by old-fashioned, drip-brewed coffee. But Unix has a much richer history beyond those
+                bearded C programmers from the 1970s.</p>
+              <p>Unix is an operating system and a set of tools. The tool that will be talked about the most in the documentatioin is a shell, which is a computer program that provides a command line interface. You’ve probably seen a command line interface
+                in the movies: an elite hacker sits in front of a black screen with green glowing text, furiously typing in commands and saying something like “Spike them!” Using the command line interface lets you enter lines of code into a shell (also
+                called a console) and that code instructs your computer to perform a specific task. </p>
+            </article>
+          </section>
+
+          <!-- HELLO TERMINAL -->
+          <section id="Hello_Terminal" class="main-section">
+            <header>Hello Terminal</header>
+            <article>
+              <p>To get started with writing Unix, you need to open up a terminal, a bash shell. Your shell might look differen, but all bash shells have the same essential parts. The string of characters is called the prompt. You type command line commands
+                after the prompt. The prompt is just there to let you know that the shell is ready for you to type in a command. Every command line command is actually a little computer program, even commands as simple as clear. These commands all tend
+                to have the following structure:</p>
+              <code>[command][options][arguements]
+                       </code>
+              <p>Simple commands like clear don’t require any options or arguments. Options are usually preceded by a hyphen (-) and they modify the behavior of the command. Arguments can be names of files, raw data, or other options that the command requires.
+                A simple command that has an argument is echo. The echo command prints a phrase to the console. Entering echo "Hello World!" into the command line would look like this:</p>
+              <code> echo 'Hello Terminal'</code>
+            </article>
+          </section>
+          <section id="Navigating_The_Command_Line" class="main-section">
+
+            <!-- NAVIGATING THE COMMAND LINE -->
+            <header>Navigating The Command Line</header>
+            <article>
+              <p>Computers are organized in a hierarchy of folders, where a folder can contain many folders and files. People who use Unix often refer to folders as directories and these terms are interchangeable. This directory hierarchy forms a tree, like
+                the diagram below. You can use the command line to navigate these trees on your computer. This is the simplest case of how directories are structured.</p>
+              <center><img class="icon" src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/wtLkYVUeEeeKEw7TC8PKsA_ea963f9d59cb7faedd674a3322a5b9ed_musictree1.png?expiry=1529884800000&hmac=AvvlTeqxT3-pcpp7bhiwpncnA7qtSci-9QX1KmPDAnc"></center>
+                <p>The directory structure on most computers is much more complicated, but the structure on your computer probably looks something like this:</p>
+                <center><img class="icon" src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/84WghVUeEeeTxBKRuWYr1A_9228b963a030e7a65deb9125aee49033_bigtree1.png?expiry=1529884800000&hmac=IpEoXn4poHvaqJol4EFcQoi3Wjv4e3rk4-WDJPxHXcU"></center>
+                  <p>There are a few special directories that you should be aware of on your computer. The directory at the top of this tree is called the root directory.</p>
+                  <p>The root directory contains all other directories, and is represented by a slash (/). The home directory is another special directory that is represented by a tilde (~). Your home directory contains your personal files, like your photos,
+                    documents, and the contents of your desktop. When you first open up your shell you usually start off in your home directory. Imagine tracing all of the directories from your root directory to the directory you’re currently in. This
+                    sequence of directories is called a path. The diagram below illustrates the path from a hypothetical root directory to the home directory.</p>
+                  <center><img class="icon" src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/CIdvglUfEeeKEw7TC8PKsA_1cd42cf516c541d0e2f435a8e8127934_redtree.png?expiry=1529884800000&hmac=M10t4u8NpuWrGNJGLDfteuzkjUjN6TQ5EsuRID94I_k"></center>
+                    <p>The basic commands for navigating the command line are:</p>
+                    <ul>
+                      <li>PWD. This stands for Print Working Directory. Your shell starts in your home directory. Whatever directory your shell is in is called the working directory.</li>
+                      <li>CD. This stands for Change Directory. You are in your working directory when you open your shell, and by entering CD into the command line you did technically change directory, you just changed it to your home directory. To use cd to change your working directory to a directory other than your home directory, you need to provide cd with the path to another directory as an argument.</li>
+                      <li>LS. This stands for List Files. Use the LS command to list the files in the current directory.</li>
+                    </ul>
+            </article>
+          </section>
+                
+          <!-- Creation and Inspection -->      
+          <section id="Creation_and_Inspection" class="main-section">
+            <header>Creation and Inspection</header>
+            <article>
+              <p>Now that you can fluidly use your terminal to show & change directories all over your computer I’ll show you some actions you can perform on folders and files. One of the first actions you’ll probably want to take when opening up a fresh terminal is to create a new folder or file. You can make a directory with the <em>mkdir command</em>, followed by the path to the new directory. For example:</p>
+              <code>mkdir Wedding-Pictures</code>
+              <p>Next is creating files. There are a few different ways to create a new file on the command line. The most simple way to create a blank file is to use the <em>touch command</em>, followed by the path to the file you want to create. For example, I am going to create file that has important thing that have happened so far this year:</p>
+              <code>touch 2018-Important-Events.txt</code>
+              <p>A new file has been created! As stated before, ls lists files, but using ls alone doesn’t differentiate between which of the listed items are folders and which are files. Thankfully you can use the -l option with ls in order to get a long listing of files in a directory. This is how it works:</P>
+            <code>ls -l</code>
+            <p> Yeah, that's it. It's that simple. Whatever, directory you're in, just ls -l.</p>
+            <p> Next on the list on tools for creating and inspecting are, WC, CAT, LESS, HEAD & TAIL. Listed below are their description and how they are used.
+              <ul>
+                <li>
+                  <p>WC stands for Word Count, basically it displays the number of lines in a file followed by the number of words and then the number of characters.</p>
+                  <code>wc 2018-Important-Events.txt</code>
+                </li>
+                
+                <li>
+                  <p>The cat command is often used to print text files to the terminal, despite the fact that it’s really meant to conCATenate files. The cat command combines every text file that is provided as an argument. The command,</p>
+                  <code>cat 2018-Important-events.txt</code>
+                  <p>will print on the console, all the contents on 2018-Important-Events.</p>
+                </li>
+                <li>
+                  <p>Lets say you have a file with a large amount of characterss (you can find out by using WC). Lets say over 5000 characters. You wouldn't want to use CAT, it would likely take up the entire terminal. Instead of using CAT, use LESS, which is a program designed for viewing multi-page files.</p>
+                  <code> less Documents/The-Chronicles-of-Narnia.txt</code>
+                  <p>You can scroll through the file line-by-line using the up and down arrow keys. If you want to scroll faster you can use the spacebar to go to the next page and the b key to go to the previous page. To quit less and go back to the prompt press the q key.</p>
+                </li>
+                <li>
+                  <p>There are also two easy to remember programs for glimpsing the beginning or end of a text file: HEAD and TAIL. Let’s quickly use HEAD and TAIL. With HEAD and TAIL, You can specify the number of lines printed with the -n option followed by the number of lines you’d like to see.</p>
+                  <code>head -n 7 Documents/The-Chronicles-of-Narnia.txt</code>
+                </li>
+              </ul>
+            </article>
+          </section>
+        
+        <!-- Migration and Destruction --> 
+          <section id="Migration_and_Destruction" class="main-section">
+            <header>Migratioin and Destruction</header>
+            <article>
+              <p>In this section, we will discuss moving, renaming, copying, and deleting files and folders. In the next example, I will show you how to MoVe a text file to a new directory. First I am going to list all the contents of my home directory with LS, then make a new directory with MKDIR, and then move the file to the new directory with MV. Finaly, I will move my new directory to the Documents folder.</p>
+              <code>ls</code>
+              <code>mkdir New-Books</code>
+              <code>mv The-Chronicles-of-Narnia.text New-Books</code>
+              <code>mv New-Books Documents</code>
+              <p> The MV command can also be used to rename files and folders. The first argument is the path to the folder or file that you want to rename, and the second argument is a path with the new name for the file or folder.
+                <code>mv 2018-Important-Events.txt Important-Events.txt</code>
+              <p>Similar to the MV command, the CP command CoPies a file or folder from one location to another. CP is used exactly as MV when copying files, the file or folder you wish to copy is the first argument, followed by the path to the folder where you want the copy to be made.</p>
+              <code>cp The-Screwtape-Letters.txt Desktop</code>
+              <p><em>et voilà!</em> However, be aware that there is one difference between copying files and folders, when copying folders you need to specify the -r option, which is short for recursive. This ensures that the underlying directory structure of the directory you wish to copy remains intact.</p>
+              
+              <p>Finally, let’s discuss how to delete files and folders with the command line. <big>A word of extreme caution: I don’t recommend deleting files or folders on the command line because there is no undo button on the command line.</big> If you delete a file that is critical to your computer functioning you may cause irreparable damage. I highly recommend moving files or folders to a designated trash folder and then deleting them the way you would normally delete files and folders outside of the command line. Now that we've taken care of that, the command to ReMove/delete a file or folder is the RM command.</p>
+              <code>rm The-Chronicles-of-Narnia.txt</code>
+              <p> And just like that, it's gone forever. Remember, <big>IT IS GONE FOREVER.</big></p>
+            </article>
+          </section>
+        
+        <!-- Self Help--> 
+          <section id="Self_Help" class="main-section">
+            <header>Self Help</header>
+            <article>
+              <p>Each of the commands that have been discussed so far are thoroughly documented, and you can view their documentation using the MAN command, where the first argument to man is the command you’re curious about. For example, if you were curious to learn more about the destructive powers of the rm command, you would enter</p>
+              <code>man rm</code>
+              <p>The controls for navigating man pages are the same as they are for less. Use MAN pages for quickly searching for an option that you have forgotten. Let’s say that you have forgot how to get ls to print a long list. After typing man ls to open the page, type / in order to start a search. Then type the word or phrase that you’re searching for, in this case type in long list and then press Enter.</p>
+              
+              <p>The MAN command works wonderfully when you know which command you want to look up, but what if you’ve forgotten the name of the command you’re looking for? You can use apropos to search all of the available commands and their descriptions. For example let’s you forgot the name of the command line text editor. You could type <code>apropos editor</code> into the command line which will print a list of results.</p>
+            </article>
+          </section>
+        
+        <!-- Get Wild --> 
+          <section id="Get_Wild" class="main-section">
+            <header>Get Wild</header>
+            <article>
+              <p>So you have a file with multiple items in them. Lets say it's your Music folder, and you have over 3000 songs. Now all of  a sudden you want to organize thils cluster bomb of music. Instead of using MV to move around each individual song, you can select groups of songs using the * wildcard. A wildcard is a character that represents other characters, much like how joker in a deck of cards can represent other cards in the deck. Wildcards are a subset of metacharacters. The * (“star”) wildcard represents zero or more of any character, and it can be used to match names of files and folders in the command line. For example if I wanted to list all of the songs in my music directory that have Adele in them, I could do the following:</p>
+              <code>ls *Adele*</code>
+              <p>Only the songs that have Adele are listed! The command ls *Adele* literally means: list the songs that have “Adele” anywhere in the name. As you can imagine using wildcards is a powerful tool for working with groups of files that are similarly named.</p>
+            </article>
+          </section>
+        
+        <!-- Search -->
+          <section id="Search" class="main-section">
+            <header>Search</header>
+            <article>
+              <p>The ability to search through files and folders can greatly improve your productivity using Unix. First we’ll cover searching through text files. For this section, I recommend downloading <a href="http://seankross.com/notes/states.txt">this .txt file</a> which has the name of all 50 states in the US. Before we continue, try using what you have learned so far on states file. Anything from LS to the * wildcard.</p>
+              <p>Text data are called strings, a string could be a word, a sentence, a book, or a file or folder name. One of the most effective ways to search through strings is to use regular expressions. Regular expressions are strings that define patterns in other strings. You can use regular expressions to search for a sub-string contained within a larger string, or to replace one part of a string with another string. One of the most popular tools for searching through text files is GREP. The simplest use of grep requires two arguments: a regular expression and a text file to search. Using the states file that you downloaded, lets search for states that have the letter N in them.</p>
+              <code>grep "n" states.txt</code>
+              <p>Arizona, Arkansas, California, Connecticut, etc will be the result. In the command above, the first argument to grep is the regular expression "n". The "n" regular expression represents one instance of the letter “n”. Every line of the states.txt file that contains at least one instance of the letter “n” is printed to the console.</p>
+            </article>
+          </section>
+        
+        <!-- Make -->
+          <section id="Make" class="main-section">
+            <header>Make</header>
+            <article>
+              <p>The guiding design goal of make is that in order to install some new piece of software one would:
+                <ul>
+                  <li>Download all of the files required for installation into a directory.</li>
+                  <li>cd into that directory.</li>
+                  <li>Run make.</li>
+              </ul>
+              This is accomplished by specifying a file called makefile, which describes the relationships between different files and programs. In addition to installing programs, make is also useful for creating documents automatically.
+              <code>cd ~/Documents/Journal
+nano makefile
+draft Rough_Draft_2018_Events.txt        
+    touch Rough_Draft_2018_Events.txt            </code>
+              </p>
+              <p>The simple makefile above shows illustrates a rule which has the following general format:
+                <code>[target]: [dependencies...] [commands...]</code>
+            </p>
+              <p>In the example we created, Rough_Draft_2018_Events.txt is the target, a file which is created as the result of the command(s). It’s very important to note that any commands under a target must be indented with a Tab. If we don’t use Tabs to indent the commands then make will fail.</p>
+            <p>A quick summary of MAKE
+            <ul>
+              <li> make is a tool for creating relationships between files and programs, so that files that depend on other files can be automatically rebuilt.</li>
+              <li>makefiles are text files that contain a list of rules.</li>
+              <li>Rules are made up of targets (files to be built), commands (a list of bash commands that build the target), and dependencies (files that the target depends on to be built).</li>
+            </ul>
+              </p>
+            </article>
+          </section>
+    
+            <!-- Math -->
+          <section id="Math" class="main-section">
+            <header>Math</header>
+            <article>
+              <p>The Bash programming language can do very basic arithmetic, which we’ll demonstrate in this section. First create a file using nano and call it math.sh. Once you have created that file and have it open, type</p>
+              <code>
+   expr 5 + 2
+   expr 5 - 2
+   expr 5 \* 2
+   expr 5 / 2
+              </code>
+              <p>save the file and run it in you shell, simply type <em>bash math.sh</em> and what you should get is 7, 3, 10, 2. If you don't get those values, check your inputs in math.sh again and make sure you have the right numbers.</p>
+              <p>Let’s break down what’s going on in the Bash script you just created. Bash executes programs in order from the fist line in your file to the last line. The expr command can be used to evaluate Bash expressions. An expression is just a valid string of Bash code that, when run, produces a result. The arithmetic operators that you’re already familiar with for addition (+), subtraction (-), and multiplication (*) work like you would expect them to. Notice that when doing multiplication you need to escape the star character, otherwise Bash thinks you’re trying to create a regular expression! The division operator (/) does not work as you might expect it to since 5 / 2 = 2.5. Bash does integer division, which means that the result of dividing one number by another is always rounded down to the nearest integer.</p>
+              <p>If you want to do more complex math, for example math with fractions and numbers with decimals then I suggest combining echo and the Bench Calculator program called BC. Create a new file called bigmath.sh and type in the following
+                <code>
+    echo "22 / 7" | bc -l
+    echo "4.2 * 9.15" | bc -l
+    echo "(6.5 / 0.5) + (6 * 2.2)" | bc -l
+                </code>
+              <p>Save bigmath.sh and then run <em>bash bigmath.sh</em> in your shell and you should get, 3.14285714285714285714, 38.430, 26.2. You can pipe any mathematical string to BC with the -l flag in order to use decimal numbers in your calculations.</p>
+              <p>To summarize what we went over in math
+              <ul>
+                <li>Bash programs are executed in order from the first line in a file until the last line.</li>
+                <li>Anything written after a pound sign (#) is a comment and is not executed by Bash.</li>
+                <li>You can do simple arithmetic with the expr command.</li>
+                <li>Perform more complicated arithmetic by piping a string expression into bc using echo.</li>
+              </ul>
+              </p>
+            </article>
+          </section>
+            
+      <!-- Reference -->    
+    <section id="Reference" class="main-section">                  <header>Reference</header>
+                     <article>
+                        <p>All the documentation in this page is taken from <a href="https://www.coursera.org/learn/unix/home/welcome" title="Coursera">Coursera</a>. If you would like to learn different topics, go check them out. You can either take a free course or pay for one and get a certificate of completion.</p>       
+      </article>
+  </section>
+  </div>
+
+<footer class="footer">
+                  <div class="enjoy">Hope you enjoyed this<i class="fa fa-smile-o" aria-hidden="true"></i></div>
+               </footer>
+            </div>
+         </div>
+      </div>
+   </main>
+  <script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
